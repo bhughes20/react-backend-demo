@@ -25,7 +25,8 @@ class PersonRepositoryTest {
 
     @Test
     void shouldFindYuval_usingNativeQuery(){
-        fail();
+        assertEquals(1, personRepository.findByFirstNameAndLastNameUsingNativeQuery
+                ("Yuval", "Harari").size());
     }
 
     @Test
