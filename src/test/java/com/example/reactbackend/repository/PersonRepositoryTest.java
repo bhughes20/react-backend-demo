@@ -19,7 +19,8 @@ class PersonRepositoryTest {
 
     @Test
     void shouldFindYuval_usingQuery(){
-        fail();
+        assertEquals(1, personRepository.findByFirstNameAndLastNameUsingQuery
+                ("Yuval", "Harari").size());
     }
 
     @Test
