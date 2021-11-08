@@ -43,7 +43,8 @@ class PersonRepositoryTest {
 
     @Test
     void shouldFindYuval_usingCustomImplementation(){
-        fail();
+        assertEquals(1, personRepository.findByFirstNameAndLastNameCustom
+                ("Yuval", "Harari").size());
     }
 
 }

@@ -7,7 +7,7 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface PersonRepository extends JpaRepository<Person, Long> {
+public interface PersonRepository extends JpaRepository<Person, Long>, CustomPersonRepository {
 
     List<Person> findByFirstNameAndLastName(String firstName, String lastName);
 
@@ -18,8 +18,8 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
             "WHERE p.first_name = :firstName AND p.last_name = :lastName", nativeQuery = true)
     List<Person> findByFirstNameAndLastNameUsingNativeQuery(String firstName, String lastName);
 
-
     List<Person> findByFirstNameAndLastNameNamedQuery(@Param("name") String firstName, @Param("surname") String lastName);
 
     List<Person> findByFirstNameAndLastNameNamedNativeQuery(String firstName, String lastName);
+
 }
