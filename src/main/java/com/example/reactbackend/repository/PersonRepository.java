@@ -3,6 +3,7 @@ package com.example.reactbackend.repository;
 import com.example.reactbackend.model.Person;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
@@ -16,4 +17,9 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
     @Query(value = "SELECT id, first_name, last_name FROM people p " +
             "WHERE p.first_name = :firstName AND p.last_name = :lastName", nativeQuery = true)
     List<Person> findByFirstNameAndLastNameUsingNativeQuery(String firstName, String lastName);
+
+
+    List<Person> findByFirstNameAndLastNameNamedQuery(@Param("name") String firstName, @Param("surname") String lastName);
+
+    List<Person> findByFirstNameAndLastNameNamedNativeQuery(String firstName, String lastName);
 }

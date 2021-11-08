@@ -31,12 +31,14 @@ class PersonRepositoryTest {
 
     @Test
     void shouldFindYuval_usingNamedQuery(){
-        fail();
+        assertEquals(1, personRepository.findByFirstNameAndLastNameNamedQuery
+                ("Yuval", "Harari").size());
     }
 
     @Test
     void shouldFindYuval_usingNamedNativeQuery(){
-        fail();
+        assertNotNull(personRepository.findByFirstNameAndLastNameNamedNativeQuery
+                ("Yuval", "Harari"));
     }
 
     @Test
